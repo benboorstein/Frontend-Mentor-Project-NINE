@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+
+    <!-- All of the lines just below were verbatim pasted from fonts.google.com. Remember how this works re: font weights, etc. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/style.css"> <!--always put this line after fonts because of how things load-->
+    <!-- "./" means "from right here". "../" means "go up a level". And, from a site:
+      Here is all you need to know about relative file paths:
+        Starting with “/” returns to the root directory and starts there
+        Starting with “../” moves one directory backwards and starts there
+        Starting with “../../” moves two directories backwards and starts there (and so on…)
+        To move forward, just start with the first subdirectory and keep moving forward -->
+
+    <title>Frontend Mentor | Time tracking dashboard</title>
+  </head>
+  <body>
+    <header>
+      <ul class="header-list-1">
+        <li>
+          <img src="assets/img/image-jeremy.png" alt="picture of person who is subject of report">
+        </li>
+        <li>
+          <p>Report for</p>
+          <p>Jeremy Robson</p>
+        </li>        
+      </ul>
+      <ul class="header-list-2">
+        <li><button>Daily</button></li>
+        <li><button>Weekly</button></li>
+        <li><button>Monthly</button></li>
+      </ul>
+    </header>
+    <main class="wrapper">
+      <section class="work">
+        <div></div>
+        <ul class="activity-list">
+          <li>Work</li>
+          <li><button><img src="assets/img/icon-ellipsis.svg" alt="PUT SOMETHING BETTER HERE"></button></li>
+          <li>5hrs</li>
+          <li>Previous - 7hrs</li>
+        </ul>
+      </section>
+      <section class="play">
+        <div></div>
+        <ul class="activity-list">
+          <li>Play</li>
+          <li><button><img src="assets/img/icon-ellipsis.svg" alt="PUT SOMETHING BETTER HERE"></button></li>
+          <li>5hrs</li>
+          <li>Previous - 7hrs</li>
+        </ul>
+      </section>
+      <section class="study">
+        <div></div>
+        <ul class="activity-list">
+          <li>Study</li>
+          <li><button><img src="assets/img/icon-ellipsis.svg" alt="PUT SOMETHING BETTER HERE"></button></li>
+          <li>5hrs</li>
+          <li>Previous - 7hrs</li>
+        </ul>
+      </section>
+      <section class="exercise">
+        <div></div>
+        <ul class="activity-list">
+          <li>Exercise</li>
+          <li><button><img src="assets/img/icon-ellipsis.svg" alt="PUT SOMETHING BETTER HERE"></button></li>
+          <li>5hrs</li>
+          <li>Previous - 7hrs</li>
+        </ul>
+      </section>
+      <section class="social">
+        <div></div>
+        <ul class="activity-list">
+          <li>Social</li>
+          <li><button><img src="assets/img/icon-ellipsis.svg" alt="PUT SOMETHING BETTER HERE"></button></li>
+          <li>5hrs</li>
+          <li>Previous - 7hrs</li>
+        </ul>
+      </section>
+      <section class="self-care">
+        <div></div>
+        <ul class="activity-list">
+          <li>Self care</li>
+          <li><button><img src="assets/img/icon-ellipsis.svg" alt="PUT SOMETHING BETTER HERE"></button></li>
+          <li>5hrs</li>
+          <li>Previous - 7hrs</li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <p class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="#">Ben Boorstein</a>.
+      </p>
+    </footer>
+
+    <!-- <script src="https://unpkg.com/vue@next"></script> -->
+    <script src="./assets/js/app.js"></script>
+  </body>
+</html>
