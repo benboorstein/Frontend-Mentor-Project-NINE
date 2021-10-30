@@ -32,15 +32,7 @@ body {
 
 /****************************************
 header
-****************************************/
-
-/* LEFT OFF HERE:
-- Position all elements in '.activiy-list' element, and use Flexbox to do it.
-- Still have to set Active State colors on ellipsis and '.activity-list': 
-  - BUT:
-    - how do you change the color of the ellipsis given it's an image?
-    - how do you change the background-color of the ellipsis button when hovering over the '.activity-list' ul?
-*/ 
+****************************************/ 
 
 header {
   margin-bottom: 32px;
@@ -115,10 +107,6 @@ p {
   color: white;
 }
 
-.header-list-2 button:active {
-  color: white;
-}
-
 /****************************************
 main
 ****************************************/
@@ -134,13 +122,13 @@ section {
   grid-template-rows: 55px 75px 100px;
 }
 
-section div {
+section .for-background-image {
   border-radius: 20px;
   grid-row: 1 / 3;
   grid-column: 1 / 2;
 }
 
-.work div {
+.work .for-background-image {
   background:
     url("../../assets/img/icon-work.svg")
       no-repeat
@@ -149,7 +137,7 @@ section div {
       92% -15px / 112px 112px;
 }
 
-.play div {
+.play .for-background-image {
   background:
     url("../../assets/img/icon-play.svg")
       no-repeat
@@ -158,7 +146,7 @@ section div {
       90% -7px / 112px 113px;
 }
 
-.study div {
+.study .for-background-image {
   background:
     url("../../assets/img/icon-study.svg")
       no-repeat
@@ -167,7 +155,7 @@ section div {
       92% -9px / 112px 112px;
 }
 
-.exercise div {
+.exercise .for-background-image {
   background:
     url("../../assets/img/icon-exercise.svg")
       no-repeat
@@ -176,7 +164,7 @@ section div {
       92% -1px / 121.5px 82.5px;
 }
 
-.social div {
+.social .for-background-image {
   background:
     url("../../assets/img/icon-social.svg")
       no-repeat
@@ -185,7 +173,7 @@ section div {
       94% -22px / 109.5px 146px;
 }
 
-.self-care div {
+.self-care .for-background-image {
   background:
     url("../../assets/img/icon-self-care.svg")
       no-repeat
@@ -195,39 +183,64 @@ section div {
 }
 
 .activity-list {
+  padding: 0 33px 0 33px;
   cursor: pointer;
   background-color: hsl(235, 46%, 20%);
   border-radius: 20px;
   grid-row: 2 / 4;
   grid-column: 1 / 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
 }
 
-.activity-list li:nth-child(1) {
+.activity-list:hover {
+  background-color: hsl(235, 36%, 30%);
+}
+
+.activity-list-ul-1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.activity-list-ul-1 li:nth-child(1) {
   color: white;
   font-size: 26px;
   font-weight: 500;
 }
 
-.activity-list button {
+.activity-list-ul-1 button {
   background-color: hsl(235, 46%, 20%);
   border: none;
   cursor: pointer;
   padding: 0;
 }
 
-.activity-list img {
-  width: 28px;
+.activity-list:hover .activity-list-ul-1 button { /* REMEMBER that this sort of thing can be done in CSS! */
+  background-color: hsl(235, 36%, 30%);
 }
 
-.activity-list li:nth-child(3) {
+/* this is what makes each of the ellipses white on hover */
+.activity-list-ul-1 path:hover {
+  fill: white;
+}
+
+.activity-list-ul-2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.activity-list-ul-2 li:nth-child(1) {
   color: white;
   font-size: 43px;
   font-weight: 300;
 }
 
-.activity-list li:last-child {
+.activity-list-ul-2 li:last-child {
   color: hsl(236, 100%, 87%);
   font-size: 22px;
+  align-self: center;
 }
 
 /****************************************
@@ -252,19 +265,126 @@ footer
 
 @media screen and (min-width: 768px) { /* starting at width of 768px, the code below (which is only for CHANGES to the above code) will take effect. */
 
+  body {
+    /* padding: 200px 120px 0 120px; */ /*may want to use this but for now operate on 0 to take away variables*/
+    padding: 0;
+  }
+
+  .container-header-and-main {
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    grid-template-columns: repeat(2, auto);
+  }
+
   /****************************************
   header
   ****************************************/
 
+  header {
+    margin-bottom: 0;
+    grid-row: 1 / 3;
+    grid-column: 1 / 2;
+    grid-template-rows: 290px 40px 145px; /*problem?*/
+  }
+  
+  header ul {
+    border-radius: 15px;
+  }
+  
+  .header-list-1 {
+    padding: 35px 0 0 25px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 35px;
+  }
+
+  .header-list-1 p:first-child {
+    font-size: 13px;
+  }
+
+  .header-list-1 img {
+    height: 90px;
+  }
+
+  .header-list-1 p:last-child span {
+    display: block;
+  }
+  
+  .header-list-2 {
+    padding-left: 25px;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+  }
+
+  .header-list-2 button {
+    font-size: 17px;
+  }
 
   /****************************************
   main
   ****************************************/
 
+  /* LEFT OFF HERE: 
+    - style desktop view
+    - move on to JS
+  */
+
+  .wrapper {
+    grid-gap: 25px;
+    grid-template-rows: repeat(2, auto);
+    grid-template-columns: repeat(3, auto);
+  }
+
+  section .for-background-image {
+    border-radius: 15px;
+  }
+
+  .activity-list {
+    border-radius: 15px;
+  }
+
+  .work {
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+  }
+
+  .play {
+    grid-row: 1 / 2;
+    grid-column: 3 / 4;
+  }
+
+  .study {
+    grid-row: 1 / 2;
+    grid-column: 4 / 5;
+  }
+
+  .exercise {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+  }
+
+  .social {
+    grid-row: 2 / 3;
+    grid-column: 3 / 4;
+  }
+
+  .self-care {
+    grid-row: 2 / 3;
+    grid-column: 4 / 5;
+  }
+
+
+
 
   /****************************************
   footer
   ****************************************/
+
+  .attribution {
+    /* margin-top: 185px; */
+    /* margin-top: 0; */
+  }
 }
 
 

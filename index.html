@@ -23,78 +23,141 @@
     <title>Frontend Mentor | Time tracking dashboard</title>
   </head>
   <body>
-    <header>
-      <ul class="header-list-1">
-        <li>
-          <img src="assets/img/image-jeremy.png" alt="picture of person who is subject of report">
-        </li>
-        <li>
-          <p>Report for</p>
-          <p>Jeremy Robson</p>
-        </li>        
-      </ul>
-      <ul class="header-list-2">
-        <li><button>Daily</button></li>
-        <li><button>Weekly</button></li>
-        <li><button>Monthly</button></li>
-      </ul>
-    </header>
-    <main class="wrapper">
-      <section class="work">
-        <div></div>
-        <ul class="activity-list">
-          <li>Work</li>
-          <li><button><img src="assets/img/icon-ellipsis.svg" alt="PUT SOMETHING BETTER HERE"></button></li>
-          <li>5hrs</li>
-          <li>Previous - 7hrs</li>
+    <div class="container-header-and-main">
+      <header>
+        <ul class="header-list-1">
+          <li>
+            <img src="assets/img/image-jeremy.png" alt="picture of person who is subject of report">
+          </li>
+          <li>
+            <p>Report for</p>
+            <p>Jeremy <span>Robson</span></p>
+          </li>        
         </ul>
-      </section>
-      <section class="play">
-        <div></div>
-        <ul class="activity-list">
-          <li>Play</li>
-          <li><button><img src="assets/img/icon-ellipsis.svg" alt="PUT SOMETHING BETTER HERE"></button></li>
-          <li>5hrs</li>
-          <li>Previous - 7hrs</li>
+        <ul class="header-list-2">
+          <li><button>Daily</button></li>
+          <li><button>Weekly</button></li>
+          <li><button>Monthly</button></li>
         </ul>
-      </section>
-      <section class="study">
-        <div></div>
-        <ul class="activity-list">
-          <li>Study</li>
-          <li><button><img src="assets/img/icon-ellipsis.svg" alt="PUT SOMETHING BETTER HERE"></button></li>
-          <li>5hrs</li>
-          <li>Previous - 7hrs</li>
-        </ul>
-      </section>
-      <section class="exercise">
-        <div></div>
-        <ul class="activity-list">
-          <li>Exercise</li>
-          <li><button><img src="assets/img/icon-ellipsis.svg" alt="PUT SOMETHING BETTER HERE"></button></li>
-          <li>5hrs</li>
-          <li>Previous - 7hrs</li>
-        </ul>
-      </section>
-      <section class="social">
-        <div></div>
-        <ul class="activity-list">
-          <li>Social</li>
-          <li><button><img src="assets/img/icon-ellipsis.svg" alt="PUT SOMETHING BETTER HERE"></button></li>
-          <li>5hrs</li>
-          <li>Previous - 7hrs</li>
-        </ul>
-      </section>
-      <section class="self-care">
-        <div></div>
-        <ul class="activity-list">
-          <li>Self care</li>
-          <li><button><img src="assets/img/icon-ellipsis.svg" alt="PUT SOMETHING BETTER HERE"></button></li>
-          <li>5hrs</li>
-          <li>Previous - 7hrs</li>
-        </ul>
-      </section>
-    </main>
+      </header>
+      <main class="wrapper">
+        <section class="work">
+          <div class="for-background-image"></div>
+          <div class="activity-list">
+            <ul class="activity-list-ul-1">
+              <li>Work</li>
+              <li>
+                <button>
+                  <!-- Why am I embedding this <svg> tag (taken from the svg image file and then edited in order to change size) instead of just using a regular <img> tag with 'assets/img/...'? So that I can access the svg's 'path' tag and change its 'fill' attribute in my CSS file. -->
+                  <svg width="28" height="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5">
+                    <path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/>
+                  </svg>
+                </button>
+              </li>
+            </ul>
+            <ul class="activity-list-ul-2">
+              <li>5hrs</li>
+              <li>Previous - 7hrs</li>
+            </ul>
+          </div>
+        </section>
+        <section class="play">
+          <div class="for-background-image"></div>
+          <div class="activity-list">
+            <ul class="activity-list-ul-1">
+              <li>Play</li>
+              <li>
+                <button>
+                  <svg width="28" height="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5">
+                    <path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/>
+                  </svg>
+                </button>
+              </li>
+            </ul>
+            <ul class="activity-list-ul-2">
+              <li>5hrs</li>
+              <li>Previous - 7hrs</li>
+            </ul>
+          </div>
+        </section>
+        <section class="study">
+          <div class="for-background-image"></div>
+          <div class="activity-list">
+            <ul class="activity-list-ul-1">
+              <li>Study</li>
+              <li>
+                <button>
+                  <svg width="28" height="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5">
+                    <path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/>
+                  </svg>
+                </button>
+              </li>
+            </ul>
+            <ul class="activity-list-ul-2">
+              <li>5hrs</li>
+              <li>Previous - 7hrs</li>
+            </ul>
+          </div>
+        </section>
+        <section class="exercise">
+          <div class="for-background-image"></div>
+          <div class="activity-list">
+            <ul class="activity-list-ul-1">
+              <li>Exercise</li>
+              <li>
+                <button>
+                  <svg width="28" height="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5">
+                    <path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/>
+                  </svg>
+                </button>
+              </li>
+            </ul>
+            <ul class="activity-list-ul-2">
+              <li>5hrs</li>
+              <li>Previous - 7hrs</li>
+            </ul>
+          </div>
+        </section>
+        <section class="social">
+          <div class="for-background-image"></div>
+          <div class="activity-list">
+            <ul class="activity-list-ul-1">
+              <li>Social</li>
+              <li>
+                <button>
+                  <svg width="28" height="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5">
+                    <path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/>
+                  </svg>
+                </button>
+              </li>
+            </ul>
+            <ul class="activity-list-ul-2">
+              <li>5hrs</li>
+              <li>Previous - 7hrs</li>
+            </ul> 
+          </div>
+        </section>
+        <section class="self-care">
+          <div class="for-background-image"></div>
+          <div class="activity-list">
+            <ul class="activity-list-ul-1">
+              <li>Self Care</li>
+              <li>
+                <button>
+                  <svg width="28" height="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5">
+                    <path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/>
+                  </svg>
+                </button>
+              </li>
+            </ul>
+            <ul class="activity-list-ul-2">
+              <li>5hrs</li>
+              <li>Previous - 7hrs</li>
+            </ul>
+          </div>
+        </section>
+      </main>
+    </div>
     <footer>
       <p class="attribution">
         Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
