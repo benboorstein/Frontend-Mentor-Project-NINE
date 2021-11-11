@@ -23,7 +23,7 @@
     <title>Frontend Mentor | Time tracking dashboard</title>
   </head>
   <body>
-    <div class="container-header-and-main">
+    <main>
       <header>
         <ul class="header-list-1">
           <li>
@@ -35,132 +35,130 @@
           </li>        
         </ul>
         <ul class="header-list-2">
-          <li><button>Daily</button></li>
-          <li><button>Weekly</button></li>
-          <li><button>Monthly</button></li>
+          <li><button class="daily-button active">Daily</button></li> <!-- note that the 'active' class is just here to reference in CSS and JS to present the Daily data upon load of page -->
+          <li><button class="weekly-button">Weekly</button></li>
+          <li><button class="monthly-button">Monthly</button></li>
         </ul>
       </header>
-      <main class="wrapper">
-        <section class="work">
-          <div class="for-background-image"></div>
-          <div class="activity-list">
-            <ul class="activity-list-ul-1">
-              <li>Work</li>
-              <li>
-                <button>
-                  <!-- Why am I embedding this <svg> tag (taken from the svg image file and then edited in order to change size) instead of just using a regular <img> tag with 'assets/img/...'? So that I can access the svg's 'path' tag and change its 'fill' attribute in my CSS file. -->
-                  <svg width="28" height="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5">
-                    <path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/>
-                  </svg>
-                </button>
-              </li>
-            </ul>
-            <ul class="activity-list-ul-2">
-              <li>5hrs</li>
-              <li>Previous - 7hrs</li>
-            </ul>
-          </div>
-        </section>
-        <section class="play">
-          <div class="for-background-image"></div>
-          <div class="activity-list">
-            <ul class="activity-list-ul-1">
-              <li>Play</li>
-              <li>
-                <button>
-                  <svg width="28" height="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5">
-                    <path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/>
-                  </svg>
-                </button>
-              </li>
-            </ul>
-            <ul class="activity-list-ul-2">
-              <li>5hrs</li>
-              <li>Previous - 7hrs</li>
-            </ul>
-          </div>
-        </section>
-        <section class="study">
-          <div class="for-background-image"></div>
-          <div class="activity-list">
-            <ul class="activity-list-ul-1">
-              <li>Study</li>
-              <li>
-                <button>
-                  <svg width="28" height="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5">
-                    <path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/>
-                  </svg>
-                </button>
-              </li>
-            </ul>
-            <ul class="activity-list-ul-2">
-              <li>5hrs</li>
-              <li>Previous - 7hrs</li>
-            </ul>
-          </div>
-        </section>
-        <section class="exercise">
-          <div class="for-background-image"></div>
-          <div class="activity-list">
-            <ul class="activity-list-ul-1">
-              <li>Exercise</li>
-              <li>
-                <button>
-                  <svg width="28" height="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5">
-                    <path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/>
-                  </svg>
-                </button>
-              </li>
-            </ul>
-            <ul class="activity-list-ul-2">
-              <li>5hrs</li>
-              <li>Previous - 7hrs</li>
-            </ul>
-          </div>
-        </section>
-        <section class="social">
-          <div class="for-background-image"></div>
-          <div class="activity-list">
-            <ul class="activity-list-ul-1">
-              <li>Social</li>
-              <li>
-                <button>
-                  <svg width="28" height="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5">
-                    <path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/>
-                  </svg>
-                </button>
-              </li>
-            </ul>
-            <ul class="activity-list-ul-2">
-              <li>5hrs</li>
-              <li>Previous - 7hrs</li>
-            </ul> 
-          </div>
-        </section>
-        <section class="self-care">
-          <div class="for-background-image"></div>
-          <div class="activity-list">
-            <ul class="activity-list-ul-1">
-              <li>Self Care</li>
-              <li>
-                <button>
-                  <svg width="28" height="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5">
-                    <path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/>
-                  </svg>
-                </button>
-              </li>
-            </ul>
-            <ul class="activity-list-ul-2">
-              <li>5hrs</li>
-              <li>Previous - 7hrs</li>
-            </ul>
-          </div>
-        </section>
-      </main>
-    </div>
+      <section class="work">
+        <div class="for-background-image"></div>
+        <div class="activity-list">
+          <ul class="activity-list-ul-1">
+            <li>Work</li>
+            <li>
+              <button>
+                <!-- Why am I embedding this <svg> tag (taken from the svg image file and then edited in order to change size) instead of just using a regular <img> tag with 'assets/img/...'? So that I can access the svg's 'path' tag and change its 'fill' attribute in my CSS file. -->
+                <svg width="28" height="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5">
+                  <path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/>
+                </svg>
+              </button>
+            </li>
+          </ul>
+          <ul class="activity-list-ul-2">
+            <li><span class="work-hours-current">0</span>hrs</li>
+            <li><span class="previous-period">--------</span> - <span class="work-hours-previous">0</span>hrs</li>
+          </ul>
+        </div>
+      </section>
+      <section class="play">
+        <div class="for-background-image"></div>
+        <div class="activity-list">
+          <ul class="activity-list-ul-1">
+            <li>Play</li>
+            <li>
+              <button>
+                <svg width="28" height="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5">
+                  <path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/>
+                </svg>
+              </button>
+            </li>
+          </ul>
+          <ul class="activity-list-ul-2">
+            <li><span class="play-hours-current">0</span>hrs</li>
+            <li><span class="previous-period">--------</span> - <span class="play-hours-previous">0</span>hrs</li>
+          </ul>
+        </div>
+      </section>
+      <section class="study">
+        <div class="for-background-image"></div>
+        <div class="activity-list">
+          <ul class="activity-list-ul-1">
+            <li>Study</li>
+            <li>
+              <button>
+                <svg width="28" height="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5">
+                  <path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/>
+                </svg>
+              </button>
+            </li>
+          </ul>
+          <ul class="activity-list-ul-2">
+            <li><span class="study-hours-current">0</span>hrs</li>
+            <li><span class="previous-period">--------</span> - <span class="study-hours-previous">0</span>hrs</li>
+          </ul>
+        </div>
+      </section>
+      <section class="exercise">
+        <div class="for-background-image"></div>
+        <div class="activity-list">
+          <ul class="activity-list-ul-1">
+            <li>Exercise</li>
+            <li>
+              <button>
+                <svg width="28" height="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5">
+                  <path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/>
+                </svg>
+              </button>
+            </li>
+          </ul>
+          <ul class="activity-list-ul-2">
+            <li><span class="exercise-hours-current">0</span>hrs</li>
+            <li><span class="previous-period">--------</span> - <span class="exercise-hours-previous">0</span>hrs</li>
+          </ul>
+        </div>
+      </section>
+      <section class="social">
+        <div class="for-background-image"></div>
+        <div class="activity-list">
+          <ul class="activity-list-ul-1">
+            <li>Social</li>
+            <li>
+              <button>
+                <svg width="28" height="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5">
+                  <path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/>
+                </svg>
+              </button>
+            </li>
+          </ul>
+          <ul class="activity-list-ul-2">
+            <li><span class="social-hours-current">0</span>hrs</li>
+            <li><span class="previous-period">--------</span> - <span class="social-hours-previous">0</span>hrs</li>
+          </ul> 
+        </div>
+      </section>
+      <section class="self-care">
+        <div class="for-background-image"></div>
+        <div class="activity-list">
+          <ul class="activity-list-ul-1">
+            <li>Self Care</li>
+            <li>
+              <button>
+                <svg width="28" height="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5">
+                  <path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/>
+                </svg>
+              </button>
+            </li>
+          </ul>
+          <ul class="activity-list-ul-2">
+            <li><span class="selfcare-hours-current">0</span>hrs</li>
+            <li><span class="previous-period">--------</span> - <span class="selfcare-hours-previous">0</span>hrs</li>
+          </ul>
+        </div>
+      </section>
+    </main>
     <footer>
       <p class="attribution">
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
         Coded by <a href="#">Ben Boorstein</a>.
       </p>
     </footer>

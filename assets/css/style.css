@@ -32,22 +32,33 @@ body {
 
 /****************************************
 header
-****************************************/ 
+****************************************/
 
-header {
-  margin-bottom: 32px;
+/* for this project, <header> is inside of <main> because of what's needed for the desktop viewport Grid work */
+
+/****************************************
+main
+****************************************/
+
+main {
   display: grid;
-  grid-template-rows: 150px 40px 105px;
+  grid-gap: 32px 0; /* first value is for top and bottom (i.e., space between rows), second value is for left and right (i.e., space between columns) */
+  /* grid-template-rows: repeat(6, 260px); */ /* seems I don't need this for this project, I guess because heights are established by this element's children */
 }
 
-header ul {
-  border-radius: 20px;
+header {
+  display: grid;
+  grid-template-rows: 150px 40px 105px;
 }
 
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+header ul {
+  border-radius: 20px;
 }
 
 .header-list-1 {
@@ -67,7 +78,7 @@ ul {
   border-radius: 50%;
 }
 
-p {
+header p {
   margin: 0;
   padding: 0;
 }
@@ -107,14 +118,12 @@ p {
   color: white;
 }
 
-/****************************************
-main
-****************************************/
+.header-list-2 button:focus {
+  color: white;
+}
 
-.wrapper {
-  display: grid;
-  grid-gap: 32px 0; /* first value is for top and bottom (i.e., space between rows), second value is for left and right (i.e., space between columns) */
-  /* grid-template-rows: repeat(6, 260px); */ /* seems I don't need this for this project, I guess because heights are established by this element's children */
+.header-list-2 .active {
+  color: white;
 }
 
 section {
@@ -204,7 +213,7 @@ section .for-background-image {
   justify-content: space-between;
 }
 
-.activity-list-ul-1 li:nth-child(1) {
+.activity-list-ul-1 li:first-child {
   color: white;
   font-size: 26px;
   font-weight: 500;
@@ -221,8 +230,8 @@ section .for-background-image {
   background-color: hsl(235, 36%, 30%);
 }
 
-/* this is what makes each of the ellipses white on hover */
-.activity-list-ul-1 path:hover {
+/* this is what makes each of the ellipses white upon button hover */
+.activity-list-ul-1 button:hover path { /* REMEMBER that this sort of thing can be done in CSS! */
   fill: white;
 }
 
@@ -231,7 +240,7 @@ section .for-background-image {
   justify-content: space-between;
 }
 
-.activity-list-ul-2 li:nth-child(1) {
+.activity-list-ul-2 li:first-child {
   color: white;
   font-size: 43px;
   font-weight: 300;
@@ -259,6 +268,7 @@ footer
   color: hsl(228, 45%, 44%); /*hsl(hue, saturation, lightness)*/
 }
 
+
 /************************************************************
 ********** For Desktop/Wide Viewport **********
 ************************************************************/
@@ -266,25 +276,40 @@ footer
 @media screen and (min-width: 768px) { /* starting at width of 768px, the code below (which is only for CHANGES to the above code) will take effect. */
 
   body {
-    /* padding: 200px 120px 0 120px; */ /*may want to use this but for now operate on 0 to take away variables*/
     padding: 0;
-  }
-
-  .container-header-and-main {
-    display: grid;
-    grid-template-rows: repeat(2, auto);
-    grid-template-columns: repeat(2, auto);
+    height: 100vh; /* making <body> the same height as the viewport, I believe. This may not be necessary here because of how I set things up above */
+    display: grid; /* why is this necessary? Is it just for centering? I think so */
+    display: flex; /* this and the below line (in conjunction with 'margin-top: auto' on the footer) are here JUST to stick the footer to the bottom */
+    flex-direction: column;
   }
 
   /****************************************
   header
   ****************************************/
 
+  /* for this project, <header> is inside of <main> because of what's needed for the desktop viewport Grid work */
+
+  /* Robert on <header>:
+  It's not required, but it is often the right element to use when you need an introductory section.
+  You could absolutely leave your header element as a <header> element, and just move it inside your <main>.
+  */
+
+  /****************************************
+  main
+  ****************************************/
+
+  main {
+    margin: auto; /* this centers <main> */
+    grid-template-rows: repeat(2, auto); /* not needed because Grid knows */
+    grid-template-columns: repeat(4, 32vh);
+    grid-gap: 28px;
+  }
+
   header {
     margin-bottom: 0;
-    grid-row: 1 / 3;
-    grid-column: 1 / 2;
-    grid-template-rows: 290px 40px 145px; /*problem?*/
+    grid-row: span 2; /* here this is functionally the same as 'grid-row: 1 / 3;' but is more adaptable to changes because it's less hardcoded */
+    grid-template-rows: 290px 40px 145px; /* important because I'm setting the PROPORTIONS of the parts of the <header> */
+    align-content: space-between; /* why this? Go here https://css-tricks.com/snippets/css/complete-guide-grid/ and ctrl F "align-content". If I didn't want to use 'align-content...', I could have used 'grid-template-rows: 61% 8.5% 30.5%;' instead of hardcoding with px */
   }
   
   header ul {
@@ -321,71 +346,126 @@ footer
     font-size: 17px;
   }
 
-  /****************************************
-  main
-  ****************************************/
+  .work {
+    grid-column: 2 / 3;
+  }
 
-  /* LEFT OFF HERE: 
-    - style desktop view
-    - move on to JS
-  */
+  .play {
+    grid-column: 3 / 4;
+  }
 
-  .wrapper {
-    grid-gap: 25px;
-    grid-template-rows: repeat(2, auto);
-    grid-template-columns: repeat(3, auto);
+  .study {
+    grid-column: 4 / 5;
+  }
+
+  .exercise {
+    grid-column: 2 / 3;
+  }
+
+  .social {
+    grid-column: 3 / 4;
+  }
+
+  .self-care {
+    grid-column: 4 / 5;
   }
 
   section .for-background-image {
     border-radius: 15px;
   }
 
+  .work .for-background-image {
+    background:
+      url("../../assets/img/icon-work.svg")
+        no-repeat
+        hsl(15, 100%, 70%)
+        scroll
+        90% -15px / 97px 97px;
+  }
+
+  .play .for-background-image {
+    background:
+      url("../../assets/img/icon-play.svg")
+        no-repeat
+        hsl(195, 74%, 62%)
+        scroll
+        88% -7px / 97px 98px;
+  }
+
+  .study .for-background-image {
+    background:
+      url("../../assets/img/icon-study.svg")
+        no-repeat
+        hsl(348, 100%, 68%)
+        scroll
+        90% -9px / 97px 97px;
+  }
+
+  .exercise .for-background-image {
+    background:
+      url("../../assets/img/icon-exercise.svg")
+        no-repeat
+        hsl(145, 58%, 55%)
+        scroll
+        89% -1px / 101.25px 68.75px;
+  }
+
+  .social .for-background-image {
+    background:
+      url("../../assets/img/icon-social.svg")
+        no-repeat
+        hsl(264, 64%, 52%)
+        scroll
+        91% 0px / 90px 120px;
+  }
+
+  .self-care .for-background-image {
+    background:
+      url("../../assets/img/icon-self-care.svg")
+        no-repeat
+        hsl(43, 84%, 65%)
+        scroll
+        90% -13px / 82px 82px;
+  }
+
   .activity-list {
     border-radius: 15px;
+    padding: 25px 32px 0 32px;
+    justify-content: flex-start;
   }
 
-  .work {
-    grid-row: 1 / 2;
-    grid-column: 2 / 3;
+  .activity-list-ul-1 li:first-child {
+    font-size: 17px;
+    margin-bottom: 11px;
   }
 
-  .play {
-    grid-row: 1 / 2;
-    grid-column: 3 / 4;
+  .activity-list-ul-1 svg {
+    width: 19px;
   }
 
-  .study {
-    grid-row: 1 / 2;
-    grid-column: 4 / 5;
+  .activity-list-ul-2 {
+    display: block;
   }
 
-  .exercise {
-    grid-row: 2 / 3;
-    grid-column: 2 / 3;
+  .activity-list-ul-2 li:first-child {
+    margin-bottom: 10px;
   }
 
-  .social {
-    grid-row: 2 / 3;
-    grid-column: 3 / 4;
+  .activity-list-ul-2 li:last-child {
+    font-size: 15px;
   }
-
-  .self-care {
-    grid-row: 2 / 3;
-    grid-column: 4 / 5;
-  }
-
-
-
 
   /****************************************
   footer
   ****************************************/
 
   .attribution {
-    /* margin-top: 185px; */
-    /* margin-top: 0; */
+    margin-top: auto; /* this line (in conjunction with the two Flex lines on <body>) is here JUST to stick the footer to the bottom */
   }
 }
+
+
+
 
 
 
