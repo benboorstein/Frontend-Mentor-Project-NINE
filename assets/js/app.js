@@ -103,79 +103,53 @@ const data = [
   }
 ]
 
-function loadDailyData() {
-  document.querySelector('.work-hours-current').textContent = data[0].timeframes.daily.current
-  document.querySelector('.play-hours-current').textContent = data[1].timeframes.daily.current
-  document.querySelector('.study-hours-current').textContent = data[2].timeframes.daily.current
-  document.querySelector('.exercise-hours-current').textContent = data[3].timeframes.daily.current
-  document.querySelector('.social-hours-current').textContent = data[4].timeframes.daily.current
-  document.querySelector('.selfcare-hours-current').textContent = data[5].timeframes.daily.current
+function setHoursCurrent(timeframe) {
+  document.querySelector('.work-hours-current').textContent = data[0].timeframes[timeframe].current
+  document.querySelector('.play-hours-current').textContent = data[1].timeframes[timeframe].current
+  document.querySelector('.study-hours-current').textContent = data[2].timeframes[timeframe].current
+  document.querySelector('.exercise-hours-current').textContent = data[3].timeframes[timeframe].current
+  document.querySelector('.social-hours-current').textContent = data[4].timeframes[timeframe].current
+  document.querySelector('.selfcare-hours-current').textContent = data[5].timeframes[timeframe].current
+}
 
+function setHoursPrevious(timeframe) {
+  document.querySelector('.work-hours-previous').textContent = data[0].timeframes[timeframe].previous
+  document.querySelector('.play-hours-previous').textContent = data[1].timeframes[timeframe].previous
+  document.querySelector('.study-hours-previous').textContent = data[2].timeframes[timeframe].previous
+  document.querySelector('.exercise-hours-previous').textContent = data[3].timeframes[timeframe].previous
+  document.querySelector('.social-hours-previous').textContent = data[4].timeframes[timeframe].previous
+  document.querySelector('.selfcare-hours-previous').textContent = data[5].timeframes[timeframe].previous
+}
+
+function displayPrevTimePeriod(prevTimePeriod) {
   let x = document.querySelectorAll('.previous-period')
   for (let i = 0; i < x.length; i++) {
-    x[i].textContent = "Yesterday"
+    x[i].textContent = prevTimePeriod
   }
+}
 
-  document.querySelector('.work-hours-previous').textContent = data[0].timeframes.daily.previous
-  document.querySelector('.play-hours-previous').textContent = data[1].timeframes.daily.previous
-  document.querySelector('.study-hours-previous').textContent = data[2].timeframes.daily.previous
-  document.querySelector('.exercise-hours-previous').textContent = data[3].timeframes.daily.previous
-  document.querySelector('.social-hours-previous').textContent = data[4].timeframes.daily.previous
-  document.querySelector('.selfcare-hours-previous').textContent = data[5].timeframes.daily.previous
+function loadData(currentTimeframe, prevTimePeriod, prevTimeframe) {
+  setHoursCurrent(currentTimeframe)
+  displayPrevTimePeriod(prevTimePeriod)
+  setHoursPrevious(prevTimeframe)
 }
 
 // on load
-loadDailyData()
+loadData('daily', 'Yesterday', 'daily')
 
 // Daily button
-document.querySelector('.daily-button').addEventListener('click', loadDailyData)
+document.querySelector('.daily-button').addEventListener('click', function() {
+  loadData('daily', 'Yesterday', 'daily')
+})
 
 // Weekly button
 document.querySelector('.weekly-button').addEventListener('click', function() {
-
   document.querySelector(".daily-button").classList.remove("active")
-
-  document.querySelector('.work-hours-current').textContent = data[0].timeframes.weekly.current
-  document.querySelector('.play-hours-current').textContent = data[1].timeframes.weekly.current
-  document.querySelector('.study-hours-current').textContent = data[2].timeframes.weekly.current
-  document.querySelector('.exercise-hours-current').textContent = data[3].timeframes.weekly.current
-  document.querySelector('.social-hours-current').textContent = data[4].timeframes.weekly.current
-  document.querySelector('.selfcare-hours-current').textContent = data[5].timeframes.weekly.current
-
-  let x = document.querySelectorAll('.previous-period')
-  for (let i = 0; i < x.length; i++) {
-    x[i].textContent = "Last Week"
-  }
-
-  document.querySelector('.work-hours-previous').textContent = data[0].timeframes.weekly.previous
-  document.querySelector('.play-hours-previous').textContent = data[1].timeframes.weekly.previous
-  document.querySelector('.study-hours-previous').textContent = data[2].timeframes.weekly.previous
-  document.querySelector('.exercise-hours-previous').textContent = data[3].timeframes.weekly.previous
-  document.querySelector('.social-hours-previous').textContent = data[4].timeframes.weekly.previous
-  document.querySelector('.selfcare-hours-previous').textContent = data[5].timeframes.weekly.previous
+  loadData('weekly', 'Last Week', 'weekly')
 })
 
 // Monthly button
 document.querySelector('.monthly-button').addEventListener('click', function() {
-
   document.querySelector(".daily-button").classList.remove("active")
-
-  document.querySelector('.work-hours-current').textContent = data[0].timeframes.monthly.current
-  document.querySelector('.play-hours-current').textContent = data[1].timeframes.monthly.current
-  document.querySelector('.study-hours-current').textContent = data[2].timeframes.monthly.current
-  document.querySelector('.exercise-hours-current').textContent = data[3].timeframes.monthly.current
-  document.querySelector('.social-hours-current').textContent = data[4].timeframes.monthly.current
-  document.querySelector('.selfcare-hours-current').textContent = data[5].timeframes.monthly.current
-
-  let x = document.querySelectorAll('.previous-period')
-  for (let i = 0; i < x.length; i++) {
-    x[i].textContent = "Last Month"
-  }
-
-  document.querySelector('.work-hours-previous').textContent = data[0].timeframes.monthly.previous
-  document.querySelector('.play-hours-previous').textContent = data[1].timeframes.monthly.previous
-  document.querySelector('.study-hours-previous').textContent = data[2].timeframes.monthly.previous
-  document.querySelector('.exercise-hours-previous').textContent = data[3].timeframes.monthly.previous
-  document.querySelector('.social-hours-previous').textContent = data[4].timeframes.monthly.previous
-  document.querySelector('.selfcare-hours-previous').textContent = data[5].timeframes.monthly.previous
+  loadData('monthly', 'Last Month', 'monthly')
 })
