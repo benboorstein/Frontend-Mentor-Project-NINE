@@ -103,53 +103,66 @@ const data = [
   }
 ]
 
-function setHoursCurrent(timeframe) {
-  document.querySelector('.work-hours-current').textContent = data[0].timeframes[timeframe].current
-  document.querySelector('.play-hours-current').textContent = data[1].timeframes[timeframe].current
-  document.querySelector('.study-hours-current').textContent = data[2].timeframes[timeframe].current
-  document.querySelector('.exercise-hours-current').textContent = data[3].timeframes[timeframe].current
-  document.querySelector('.social-hours-current').textContent = data[4].timeframes[timeframe].current
-  document.querySelector('.selfcare-hours-current').textContent = data[5].timeframes[timeframe].current
+const mappings = {
+  daily: 'Yesterday',
+  weekly: 'Last Week',
+  monthly: 'Last Month'
 }
 
-function setHoursPrevious(timeframe) {
-  document.querySelector('.work-hours-previous').textContent = data[0].timeframes[timeframe].previous
-  document.querySelector('.play-hours-previous').textContent = data[1].timeframes[timeframe].previous
-  document.querySelector('.study-hours-previous').textContent = data[2].timeframes[timeframe].previous
-  document.querySelector('.exercise-hours-previous').textContent = data[3].timeframes[timeframe].previous
-  document.querySelector('.social-hours-previous').textContent = data[4].timeframes[timeframe].previous
-  document.querySelector('.selfcare-hours-previous').textContent = data[5].timeframes[timeframe].previous
-}
+let tracker = 'daily' // 'tracker' is just STARTING OFF as 'daily'
 
-function displayPrevTimePeriod(prevTimePeriod) {
-  let x = document.querySelectorAll('.previous-period')
-  for (let i = 0; i < x.length; i++) {
-    x[i].textContent = prevTimePeriod
-  }
-}
+////////////////////////////////////////////////
+// calling this function here so that on load of page 'daily' data is shown (this works because 'tracker' is set to 'daily' and it hasn't been updated yet) 
+updateCards()
+////////////////////////////////////////////////
 
-function loadData(currentTimeframe, prevTimePeriod, prevTimeframe) {
-  setHoursCurrent(currentTimeframe)
-  displayPrevTimePeriod(prevTimePeriod)
-  setHoursPrevious(prevTimeframe)
-}
-
-// on load
-loadData('daily', 'Yesterday', 'daily')
-
-// Daily button
-document.querySelector('.daily-button').addEventListener('click', function() {
-  loadData('daily', 'Yesterday', 'daily')
+document.querySelectorAll('.time-period-btn').forEach(button => {
+  button.addEventListener('click', function() {
+    document.querySelector('.daily-button').classList.remove('active')
+    tracker = button.textContent.toLowerCase() // 'tracker' is updated
+    updateCards()
+  })
 })
 
-// Weekly button
-document.querySelector('.weekly-button').addEventListener('click', function() {
-  document.querySelector(".daily-button").classList.remove("active")
-  loadData('weekly', 'Last Week', 'weekly')
-})
+function updateCards() {
+  document.querySelectorAll('.card').forEach(card => {
+    let match = data.find(obj => obj.title === card.dataset.label) // ref notes under code for explanation of 'card.dataset.label' snippet
+    card.querySelector('.hours-current').textContent = match.timeframes[tracker].current
+    card.querySelector('.hours-previous').textContent = match.timeframes[tracker].previous
+    document.querySelectorAll('.previous-period').forEach(period => {
+      period.textContent = mappings[tracker]
+    })
+  })  
+}
 
-// Monthly button
-document.querySelector('.monthly-button').addEventListener('click', function() {
-  document.querySelector(".daily-button").classList.remove("active")
-  loadData('monthly', 'Last Month', 'monthly')
+/* NOTES FOR THIS LINE ABOVE: let match = data.find(obj => obj.title === card.dataset.label)
+
+1) Note that 'element.dataset.keyname' -- applied in the line above as 'card.dataset.label' -- is the standard way of accessing the value(s) stored in 'keyname' ('label'). 'label' (just the suffix Robert and I chose for the HTML 'data-' attribute) is the KEY in the key-value pair, and the HTML attribute value (e.g., "Work", "Play", etc.) is the VALUE in the key-value pair. Look to the code examples below to see how logging these key-value pairs looks. Each looks like an object but is actually a DOMStringMap.
+
+2) 'dataset' is a property on the HTML element (which is represented by 'card' in this case). In Robert: 'dataset' isn't a global object that aggregates every element's 'data-' attributes, but rather is a property on any HTML element that has 'data-' attributes.
+
+3) These are the relevant MDNs: https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset and https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes.
+
+document.querySelectorAll('.card').forEach(card => {
+  console.log(card.dataset)
 })
+LOGS:
+DOMStringMap {label: 'Work'}
+DOMStringMap {label: 'Play'}
+DOMStringMap {label: 'Study'}
+DOMStringMap {label: 'Exercise'}
+DOMStringMap {label: 'Social'}
+DOMStringMap {label: 'Self Care'}
+
+document.querySelectorAll('.card').forEach(card => {
+  console.log(card.dataset.label)
+})
+LOGS:
+Work
+Play
+Study
+Exercise
+Social
+Self Care
+
+*/
