@@ -111,10 +111,8 @@ const mappings = {
 
 let tracker = 'daily' // 'tracker' is just STARTING OFF as 'daily'
 
-////////////////////////////////////////////////
 // calling this function here so that on load of page 'daily' data is shown (this works because 'tracker' is set to 'daily' and it hasn't been updated yet) 
 updateCards()
-////////////////////////////////////////////////
 
 document.querySelectorAll('.time-period-btn').forEach(button => {
   button.addEventListener('click', function() {
